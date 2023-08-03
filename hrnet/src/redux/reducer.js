@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = []
-
+/**
+ * Create employee slice to manage action and selector
+ */
 const employeeSlice = createSlice({
     name : 'employee',
     initialState,

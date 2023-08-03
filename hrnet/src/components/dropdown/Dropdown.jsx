@@ -1,5 +1,11 @@
 import React from 'react';
-
+/**
+ * Component that take an array, a value and a handle function to set state
+ * @param {Array} data 
+ * @param {string} value
+ * @param {Function} onChange 
+ * @returns 
+ */
 const Dropdown = ({ data, value, onChange }) => {
   const handleOnChange = (event) => {
     const selectedValue = event.target.value;

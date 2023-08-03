@@ -20,13 +20,13 @@ HRNET is an application that allows you to manage employee files as well as crea
 I used `html`, `css`, `JavaScript`, `React`, `Redux`, `npm`
 
 ## Setup
-- download or clone the repository at (https://github.com/vmuller55/P14_Front-end)
+- download or clone the repository at [my repository](https://github.com/vmuller55/P14_Front-end)
 - run `npm install`
 - cd `hrnet`
 - run `npm start`
 
 ## Approach
-I converted this JQUERY application using REACT. I have also published a component on npm which I use in this application
+I converted this JQUERY application using REACT. I have also published a [component](https://www.npmjs.com/package/my-modal-p14) on npm which I use in this application
 
 ## Credits
 List of contriubutors:

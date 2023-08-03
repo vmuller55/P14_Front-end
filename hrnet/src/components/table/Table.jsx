@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 
-const RectTable = ({ jsonData, tableClassName, headerBgColor, cellBgColor, tableWidth, tableMargin, withSearchBar,withPagination, searchBarClassName }) => {
+const RectTable = ({ jsonData, tableClassName, headerBgColor, cellBgColor, tableWidth, tableMargin, withSearchBar,withPagination, searchBarClassName, headerColor }) => {
     const headers = jsonData.length > 0 ? Object.keys(jsonData[0]) : [];
     const [searchQuery, setSearchQuery] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
@@ -88,11 +88,11 @@ const RectTable = ({ jsonData, tableClassName, headerBgColor, cellBgColor, table
                 :""   
             }
             
-            <table className={`rect-table ${tableClassName}`}style={{ width: tableWidth, margin : tableMargin }}>
+            <table className={`react-table ${tableClassName}`}style={{ width: tableWidth, margin : tableMargin }}>
             <thead>
                 <tr>
                 {headers.map((header, index) => (
-                    <th key={index} onClick={() => handleSort(header)} style={{ backgroundColor: headerBgColor, cursor : "pointer"}}>{header} {sortedColumn === header && (sortOrder === 'asc' ? '▲' : '▼')}</th>
+                    <th key={index} onClick={() => handleSort(header)} style={{ backgroundColor: headerBgColor,color : headerColor, cursor : "pointer"}}>{header} {sortedColumn === header && (sortOrder === 'asc' ? '▲' : '▼')}</th>
                 ))}
                 </tr>
             </thead>

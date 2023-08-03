@@ -2,6 +2,9 @@ import "./employee.css"
 import { useEffect, useState } from "react"
 import React from 'react'
 import RectTable from "../../components/table/Table"
+import data from "../../data/mockData/mockedUser.json"
+import { useSelector } from 'react-redux';
+import { selectAllEmployees } from "../../redux/reducer"
 
 /**
  * Call table component for employee page and fetch json data
@@ -9,6 +12,9 @@ import RectTable from "../../components/table/Table"
  */
 const EmployeeList = () => {
     const [jsonData, setJsonData] = useState([]);
+    const [reduxTable, setReduxTable] = useState(false);
+
+    const allEmployees = useSelector(selectAllEmployees);
 
     useEffect(() => {
         fetch('./mockedUser.json')
@@ -16,22 +22,40 @@ const EmployeeList = () => {
             .then((data) => setJsonData(data))
             .catch((error) => console.error('Error fetching data:', error));
     }, []);
+    
+    
 
     return (
         <div className="currentEmployeeContainer">
             <h2>Current Employees</h2>
-            <div className="table">
+            
+            {reduxTable
+                ?
+                <div className="table">
+                <button onClick={(e) => setReduxTable(false)}>Random data table</button>
                 <RectTable 
-                    jsonData={jsonData}
+                    jsonData={allEmployees}
                     tableWidth={"90%"}
-                    tableClassName={"test"}
                     headerBgColor={"#188764"}
-                    cellBgColor={"#67e4bd"}
+                    headerColor={"white"}
+                    tableMargin={"auto"}
+                    withSearchBar={true}
+                    withPagination={true}
+                />
+                </div>
+                :<div className="table">
+                <button onClick={(e) => setReduxTable(true)}>Redux table</button>
+                <RectTable 
+                    jsonData={data || jsonData}
+                    tableWidth={"90%"}
+                    headerBgColor={"#188764"}
+                    headerColor={"white"}
                     tableMargin={"auto"}
                     withSearchBar={true}
                     withPagination={true}
                 />
             </div>
+            }
         </div>
         )
     }

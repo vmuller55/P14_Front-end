@@ -5,3 +5,15 @@
 .react-table-searchbar{
     margin: 30px auto;
 }
+
+.react-table thead{
+    height: 40px;
+}
+
+.react-table tr{
+    border: 1px solid lightgreen;
+}
+
+.react-table tr:nth-child(even){
+    background-color: lightgrey;
+}

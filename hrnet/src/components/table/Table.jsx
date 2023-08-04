@@ -92,14 +92,14 @@ const ReactTable = ({ jsonData, tableClassName, headerBgColor, cellBgColor, tabl
     return (
         <div>
             {withSearchBar
-                ?<input type="text" value={searchQuery} onChange={handleSearchChange} placeholder="Search..." className={`react-table-searchbar ${searchBarClassName}`} />
+                ?<input type="text" value={searchQuery} onChange={handleSearchChange} placeholder="Search..." aria-label='searchBar' className={`react-table-searchbar ${searchBarClassName}`} />
                 :""
             }
             {withPagination
                 ?<div className="pagination" style={{display : "flex", justifyContent : "space-between", width : tableWidth, margin : tableMargin}}>
                     <div className='selectEntries'>
                         <span>Show </span>
-                        <select value={rowsPerPage} onChange={handleRowsPerPageChange}>
+                        <select value={rowsPerPage} onChange={handleRowsPerPageChange} aria-label='Rows per page:'>
                             <option value={5}>5</option>
                             <option value={10}>10</option>
                             <option value={15}>15</option>
@@ -114,6 +114,7 @@ const ReactTable = ({ jsonData, tableClassName, headerBgColor, cellBgColor, tabl
                             onChange={handlePageChange}
                             min={1}
                             max={Math.ceil(jsonData.length / rowsPerPage)}
+                            aria-label='page'
                         />
                         <span>of {Math.ceil(jsonData.length / rowsPerPage)}</span>
                     </div> 

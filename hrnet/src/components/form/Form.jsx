@@ -7,7 +7,8 @@ import { addEmployee } from "../../redux/reducer";
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import "./form.css"
-import Modal from 'my-modal-p14/dist/Modal'
+import Modal from "../../data/mockData/testData/mockedModal";
+// import Modal from 'my-modal-p14/dist/Modal'
 import Dropdown from "../dropdown/Dropdown";
 
 
@@ -115,7 +116,7 @@ function Form() {
       }
     };
     return(
-      <div className="formContainer"> 
+      <div className="formContainer">
         {isFormVisible
           ?<div>
             <form action="#" id="createEmployee">
@@ -125,9 +126,9 @@ function Form() {
                     <label htmlFor="last-name">Last Name</label>
                     <input type="text" id="last-name" onChange={(e) => setFormValues({ ...formValues, lastName: e.target.value })} />
                     <label htmlFor="date-of-birth">Date of Birth</label>
-                    <DatePicker selected={formValues.birth} onChange={(date) => setFormValues({ ...formValues, birth: date })}/>
+                    <DatePicker selected={formValues.birth} id="date-of-birth" onChange={(date) => setFormValues({ ...formValues, birth: date })}/>
                     <label htmlFor="start-date">Start Date</label>
-                    <DatePicker selected={formValues.start} onChange={(date) => setFormValues({ ...formValues, start: date })}/>
+                    <DatePicker selected={formValues.start} id="start-date" onChange={(date) => setFormValues({ ...formValues, start: date })}/>
                 </div>
                 <fieldset className="address">
                     <legend>Address</legend>
@@ -136,13 +137,13 @@ function Form() {
                     <label htmlFor="city">City</label>
                     <input id="city" type="text" onChange={(e) => setFormValues({ ...formValues, city: e.target.value })}/>
                     <label htmlFor="state">State</label>
-                    <Dropdown data={statesArray} value={formValues.selectedStateOption} onChange={handleDropdownChangeState}/>
+                    <Dropdown data={statesArray} value={formValues.selectedStateOption} onChange={handleDropdownChangeState} label='State'/>
                     <label htmlFor="zip-code">Zip Code</label>
                     <input id="zip-code" type="number" onChange={(e) => setFormValues({ ...formValues, code: e.target.value })}/>
                 </fieldset>
                 <div className="departmentContainer">
                     <label htmlFor="department">Department</label>
-                    <Dropdown data={departmentsArray} value={formValues.selectedDepartmentOption} onChange={handleDropdownChangeDepartment} />
+                    <Dropdown data={departmentsArray} value={formValues.selectedDepartmentOption} onChange={handleDropdownChangeDepartment} label='Department' />
                 </div>
             </form>
             <button onClick={saveEmployee} style={{cursor : "pointer"}}>Save</button>

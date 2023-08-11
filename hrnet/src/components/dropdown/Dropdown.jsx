@@ -14,7 +14,7 @@ const Dropdown = ({ data, value, onChange, label }) => {
   return (
     <select value={value} onChange={handleOnChange} aria-label={label}>
       {data.map((item) => (
-        <option key={item} value={item} label={label}>
+        <option key={item} value={item} label={item}>
           {item}
         </option>
       ))}

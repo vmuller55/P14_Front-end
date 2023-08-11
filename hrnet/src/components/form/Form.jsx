@@ -7,8 +7,8 @@ import { addEmployee } from "../../redux/reducer";
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import "./form.css"
-import Modal from "../../data/mockData/testData/mockedModal";
-// import Modal from 'my-modal-p14/dist/Modal'
+//import Modal from "../../data/mockData/testData/mockedModal";
+import Modal from 'my-modal-p14/dist/Modal'
 import Dropdown from "../dropdown/Dropdown";
 
 
